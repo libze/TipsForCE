@@ -21,7 +21,7 @@ while running:
             dict = pickle_out(tips)
             print('The data has been cleared')
 
-            setup()
+            dict = setup()
         else:
             print('The clear has been stopped')
 
@@ -63,8 +63,8 @@ while running:
                 dict[name] = 0
             pickle_save(tips, dict)
         else:
-            setup()
-        print('The program has been setup')
+            dict = setup()
+            print('The program has been setup')
 
     elif decision == 'status':
         if len(dict) == 0:
