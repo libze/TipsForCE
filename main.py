@@ -4,7 +4,7 @@ running = True
 tips = 'tips.pkl'
 dict = pickle_out(tips)
 people_at_work = []
-test = 0
+test = False
 
 #interface
 print('To get out of any loop type "done"')
@@ -21,10 +21,7 @@ while running:
             dict = pickle_out(tips)
             print('The data has been cleared')
 
-            for i in range(5):
-                name = "test " + str(i)
-                dict[name] = 0
-            pickle_save(tips, dict)
+            setup()
         else:
             print('The clear has been stopped')
 

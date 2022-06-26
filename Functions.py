@@ -5,8 +5,12 @@ def pickle_save(filename, dict):
         pickle.dump(dict, file)
 
 def pickle_out(filename):
-    with open(filename, 'rb') as file:
-        data = pickle.load(file)
+    try:
+        with open(filename, 'rb') as file:
+            data = pickle.load(file)
+    except:
+        pickle_save('tips.pkl', {})
+        pickle_out('tips.pkl')
     return data
 
 def divide(people, total, dict):
