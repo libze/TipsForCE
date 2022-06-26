@@ -4,7 +4,7 @@ running = True
 tips = 'tips.pkl'
 dict = pickle_out(tips)
 people_at_work = []
-test = False
+test = 0
 
 #interface
 print('To get out of any loop type "done"')
