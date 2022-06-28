@@ -1,12 +1,12 @@
 from Functions import *
-#Setup
+# Setup
 running = True
 tips = 'tips.pkl'
 dict = pickle_out(tips)
 people_at_work = []
 test = False
 
-#interface
+# interface
 print('To get out of any loop type "done"')
 print('Type "Options" to see available commands')
 while running:
@@ -43,7 +43,6 @@ while running:
         total = float(input('What is the total that needs to be divided? '))
         divide(people, total, dict)
 
-
     elif decision == "people at work":
         print('Name all the people at work today (one at a time): ')
         while True:
@@ -73,17 +72,42 @@ while running:
         for (person, money) in zip(dict.keys(), dict.values()):
             print(str(person).capitalize() + ':', str(money) +  'kr')
 
+    elif decision == 'setup the period':
+        setup_period()
+
+    elif decision == 'status for the period':
+        if len(dict) == 0:
+            print('No data available')
+            continue
+        data = pickle_out('tips for period.pkl')
+        print(data)
+        for (person, money) in zip(data.keys(), data.values()):
+            print(str(person).capitalize() + ':', str(money) + 'kr')
+
+    elif decision == 'clear the period':
+        sure = input('Are you sure you want to clear? ')
+        if sure == 'yes' or 'y':
+            setup_period()
+            print('The tracker for the period has been stopped')
+        else:
+            print('The clear has been stopped')
+
     elif decision == 'add':
         name = input("Name of the person you'd like to add").lower()
         dict[name] = 0
 
+    elif decision == 'update period':
+        period_tracker()
+
     elif decision == 'options':
-        print('You can type:\n'+
-              'Status\n'+
-              'Clear\n'+
-              'Declare\n'+
-              'Person\n'+
-              'People at work\n'+
-              'Done')
+        print('You can type:\n' +
+              'Status\n' +
+              'Clear\n' +
+              'Declare\n' +
+              'Person\n' +
+              'People at work\n' +
+              'Done\n' +
+              'Update period\n' +
+              'Clear the period')
 
 
