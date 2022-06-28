@@ -112,12 +112,14 @@ while running:
     elif decision == 'options':
         print('You can type:\n' +
               'Status\n' +
+              'Status for the period\n' +
               'Clear\n' +
               'Declare\n' +
               'Person\n' +
               'People at work\n' +
               'Done\n' +
               'Update period\n' +
-              'Clear the period')
+              'Clear the period\n' +
+              'Declare cash')
 
 

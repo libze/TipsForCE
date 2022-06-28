@@ -43,6 +43,7 @@ def setup_period():
         for readline in files:
             name = readline.strip()
             dict[name] = 0
+    dict['available'] = 0
     pickle_save('tips for period.pkl', dict)
 
     return dict
@@ -56,7 +57,7 @@ def period_tracker():
         monthly[name] += weekly[name]
 
     monthly['total'] = sum(monthly.values())
-    monthly['available'] = 0
+
 
     pickle_save('tips for period.pkl', monthly)
     print('The tracker for the period has been updated')
