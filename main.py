@@ -14,6 +14,7 @@ while running:
     decision = input('What do you want to do? ').lower()
     if decision == 'done':
         break
+
     elif decision == 'clear':
         sure = input('Are you sure you want to clear? ')
         if sure == 'yes' or 'y':
@@ -92,12 +93,21 @@ while running:
         else:
             print('The clear has been stopped')
 
+    elif decision == 'update period':
+        period_tracker()
+
+    elif decision == 'declare cash':
+        data = pickle_out('tips for period.pkl')
+        data['available'] += float(input('How much cash was payed as tips for the day? (is available?)'))
+
+        if data['available'] >= data['total']:
+            print('There are enough cash available to split up to pay for the period')
+
+        pickle_save('tips for period.pkl', data)
+
     elif decision == 'add':
         name = input("Name of the person you'd like to add").lower()
         dict[name] = 0
-
-    elif decision == 'update period':
-        period_tracker()
 
     elif decision == 'options':
         print('You can type:\n' +

@@ -50,10 +50,13 @@ def setup_period():
 
 def period_tracker():
     monthly = pickle_out('tips for period.pkl')
-    weekly  = pickle_out('tips.pkl')
+    weekly = pickle_out('tips.pkl')
 
-    for name in monthly.keys():
+    for name in weekly.keys():
         monthly[name] += weekly[name]
+
+    monthly['total'] = sum(monthly.values())
+    monthly['available'] = 0
 
     pickle_save('tips for period.pkl', monthly)
     print('The tracker for the period has been updated')
